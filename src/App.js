@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import AddForm from './components/AddForm';
 import SmurfList from './components/SmurfList';
 import Header from './components/Header';
-import { getSmurf } from "./actions";
+import { fetchSmurfs } from "./actions";
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +13,7 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    this.props.getSmurf()
+    this.props.fetchSmurfs()
   }
 
   render() {
@@ -30,7 +30,7 @@ class App extends Component {
   }
 }
 
-export default connect(null, {getSmurf}) (App);
+export default connect(null, {fetchSmurfs}) (App);
 
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
