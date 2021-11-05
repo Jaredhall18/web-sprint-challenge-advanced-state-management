@@ -5,6 +5,19 @@ export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
 export const ADD_SMURF = "ADD_SMURF";
 
+export const getSmurf = () => dispatch => {
+    dispatch(fetchStart());
+
+    axios.get(`http://localhost:3333/smurfs`)
+        .then(resp=> {
+            console.log(resp.data);
+            dispatch(fetchSuccess(resp.data));
+        })
+        .catch(err => {
+            dispatch(fetchFail(err));
+        });
+}
+
 export const fetchStart = () => {
     return({type:FETCH_START})
 }
